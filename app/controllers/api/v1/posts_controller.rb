@@ -14,13 +14,13 @@ class Api::V1::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-
+    
         if @post.save
-            render json: @post, status: :created
-        else 
-            render json: @post.errors, status: :unprocessable_entity
+          render json: @post, status: :created
+        else
+          render json: @post.errors, status: :unprocessable_entity
         end
-    end
+      end
 
     def update
         if @post.update(post_params)
@@ -38,13 +38,11 @@ class Api::V1::PostsController < ApplicationController
     private
 
     def set_post
-        @post =Post.find(params[:id])
-    end
+        @post = Post.find(params[:id])
+      end
 
     def post_params
-        params.require(:post).permit(:title, :auther, :content)
+        params.require(:post).permit(:title, :author, :content)
     end
-
-
-
+      
 end
