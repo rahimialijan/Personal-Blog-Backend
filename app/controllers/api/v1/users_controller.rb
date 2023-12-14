@@ -18,7 +18,7 @@ class Api::V1::UsersController < ActionController::API
   def parse_json
     request.format = :json
   end
-  
+
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
