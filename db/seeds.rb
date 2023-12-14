@@ -5,6 +5,8 @@
 
 Post.destroy_all
 
+User.create(email: 'ali@jan.com', password: 'alijan', password_confirmation: 'alijan')
+
 
 Post.create(
     title: 'Second Post',
