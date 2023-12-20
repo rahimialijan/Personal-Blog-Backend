@@ -27,7 +27,10 @@ Rails.application.configure do
   else
     config.action_controller.perform_caching = false
 
-    config.cache_store = :null_store
+    # Enable session in development
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Flash
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
